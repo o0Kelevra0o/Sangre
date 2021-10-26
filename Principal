@@ -1,0 +1,173 @@
+package clases;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class principal {
+
+    public static void main(String[] args) {
+        sangre principal1 = new sangre();
+        boolean salir = false, salir2 = false;
+        int opcion, candidato = 1;
+        String aprobados = "", rechazados = "";
+        Scanner consola = new Scanner(System.in);
+        while (!salir) {//mientras salir sea falso seguira mostrando el menu
+
+            System.out.println("Menu banco de sangre");
+            System.out.println("1.- Registrar candidatos.");
+            System.out.println("2.- Filtros");
+            System.out.println("3.- Resultados");
+            System.out.println("4.- Salir");
+            salir2 = false;
+            try {//este metodo hace que el usuario no escriba caracteres no permitidos
+
+                System.out.println("Seleccione una Opción: "); //pregunta por la opcion del menu
+                opcion = consola.nextInt();//lectura de lo ingresado por el usuario
+
+                switch (opcion) {//inicio del switch
+                    case 1://para la opcion 1
+                        System.out.println("Registro de Candidatos");
+                        while (candidato <= 5) {
+                            principal1.nombre();
+                            if (candidato == 1) {
+                                principal1.p1 = principal1.nombre;
+                            } else if (candidato == 2) {
+                                principal1.p2 = principal1.nombre;
+                            } else if (candidato == 3) {
+                                principal1.p3 = principal1.nombre;
+                            } else if (candidato == 4) {
+                                principal1.p4 = principal1.nombre;
+                            } else if (candidato == 5) {
+                                principal1.p5 = principal1.nombre;
+                            }
+                            candidato++;
+                        }
+                        System.out.println("\nNo se pueden registrar mas candidatos\n");
+                        break;
+                    case 2:// para la opcion 2
+
+                        while (!salir2) {
+                            System.out.println("\tFiltros");
+                            System.out.println("Seleccione un candidato: ");
+                            System.out.println("1.- " + principal1.p1);
+                            System.out.println("2.- " + principal1.p2);
+                            System.out.println("3.- " + principal1.p3);
+                            System.out.println("4.- " + principal1.p4);
+                            System.out.println("5.- " + principal1.p5);
+                            System.out.println("6.- Regresar al menu anterior");
+
+                            opcion = consola.nextInt();
+
+                            switch (opcion) {
+                                case 1:
+                                    if (principal1.d1) {
+                                    principal1.caso(principal1, principal1.p1, principal1.d1);
+                                    } else {
+                                        System.out.println("Ya se registraron las respuestas");
+                                    }
+                                    break;
+                                case 2:
+//                                    if (d2) {
+//                                        System.out.println("Obtenga las respuestas del candidato " + principal1.p2);
+//                                        if (principal1.ayuno1() && principal1.fecha()) {
+//                                            if (principal1.muestra()) {
+//                                                aprobados = aprobados + " " + principal1.p2;
+//                                                d2 = false;
+//                                            } else {
+//                                                rechazados = rechazados + " " + principal1.p2;
+//                                                d2 = false;
+//                                            }
+//                                        } else {
+//                                            System.out.println("Adios");
+//                                            rechazados = rechazados + " " + principal1.p2;
+//                                            d2 = false;
+//                                        }
+//                                    } else {
+//                                        System.out.println("Ya se registraron las respuestas");
+//                                    }
+//                                    break;
+//                                case 3:
+//                                    if (d3) {
+//                                        System.out.println("Obtenga las respuestas del candidato " + principal1.p3);
+//                                        if (principal1.ayuno1() && principal1.fecha()) {
+//                                            if (principal1.muestra()) {
+//                                                aprobados = aprobados + " " + principal1.p3;
+//                                                d3 = false;
+//                                            } else {
+//                                                rechazados = rechazados + " " + principal1.p3;
+//                                                d3 = false;
+//                                            }
+//                                        } else {
+//                                            System.out.println("Adios");
+//                                            rechazados = rechazados + " " + principal1.p3;
+//                                            d3 = false;
+//                                        }
+//                                    } else {
+//                                        System.out.println("Ya se registraron las respuestas");
+//                                    }
+//                                    break;
+//                                case 4:
+//                                    if (d4) {
+//                                        System.out.println("Obtenga las respuestas del candidato " + principal1.p4);
+//                                        if (principal1.ayuno1() && principal1.fecha()) {
+//                                            if (principal1.muestra()) {
+//                                                aprobados = aprobados + " " + principal1.p4;
+//                                                d4 = false;
+//                                            } else {
+//                                                rechazados = rechazados + " " + principal1.p4;
+//                                                d4 = false;
+//                                            }
+//                                        } else {
+//                                            System.out.println("Adios");
+//                                            rechazados = rechazados + " " + principal1.p4;
+//                                            d4 = false;
+//                                        }
+//                                    } else {
+//                                        System.out.println("Ya se registraron las respuestas");
+//                                    }
+//                                    break;
+//                                case 5:
+//                                    if (d5) {
+//                                        System.out.println("Obtenga las respuestas del candidato " + principal1.p5);
+//                                        if (principal1.ayuno1() && principal1.fecha()) {
+//                                            if (principal1.muestra()) {
+//                                                aprobados = aprobados + " " + principal1.p5;
+//                                                d5 = false;
+//                                            } else {
+//                                                rechazados = rechazados + " " + principal1.p5;
+//                                                d5 = false;
+//                                            }
+//                                        } else {
+//                                            System.out.println("Adios");
+//                                            rechazados = rechazados + " " + principal1.p5;
+//                                            d5 = false;
+//                                        }
+//                                    } else {
+//                                        System.out.println("Ya se registraron las respuestas");
+//                                    }
+//
+//                                    break;
+                                case 6:
+                                    salir2 = true;
+                            }
+                        }
+
+                        break;
+                    case 3:// para la opcion 4
+                        System.out.println("Los candidatos que pueden donar son: " + aprobados);
+                        System.out.println("Los candidatos que no pueden donar son: " + rechazados);
+                        break;
+                    case 4:// para la opcion 5 
+                        salir = true; // aqui es donde la variable booleana cambia a true y sale del bucle while
+                        break;
+                    default:// si el usuario ingresa un numero incorrecto al menu
+                        System.out.println("Opcion incorrecta");
+                }
+            } catch (InputMismatchException e) {//si el usuario ingresa texto en ves de numeros regresara el siguiente error
+                System.out.println("Debes introducir un numero");
+                consola.next();//metodo para volver a preguntar el numero
+            }
+
+        }
+    }
+}
