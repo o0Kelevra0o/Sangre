@@ -1,0 +1,78 @@
+package clases;
+
+import java.util.Scanner;
+
+public class sangre {
+
+    String nombre, p1, p2, p3, p4, p5;
+    int dias, hayu, prueba, hperm = 8;
+    Scanner consola = new Scanner(System.in);
+    boolean ayuno = false, vDias = false, mSangre = false, d1 = true, d2 = true, d3 = true, d4 = true, d5 = true;
+    private String aprobados = "";
+    private String rechazados = "";
+  
+    public String nombre() {
+        System.out.println("Ingrese el nombre del candidato: ");
+        nombre = consola.nextLine();
+        return nombre;
+    }
+
+    public boolean ayuno1() {
+        System.out.println("¿Cuantas horas de ayuno tiene?");
+        hayu = consola.nextInt();
+        if (hayu >= 8) {
+            System.out.println("El candidato tiene las horas de ayuno requeridas");
+            ayuno = true;
+        } else {
+            System.out.println("El candidato no cumple con las horas de ayuno establecidas");
+            ayuno = false;
+        }
+        return ayuno;
+    }
+
+    public boolean fecha() {
+        System.out.println("¿Cuantos dias naturales han transcurrido desde su ultima donación?: ");
+        dias = consola.nextInt();
+        if (dias >= 60) {
+            System.out.println("El candidato cumple con los dias previos para donar");
+            vDias = true;
+        } else {
+            System.out.println("En candidato no cumple con los 60 dias naturales previos para poder donar");
+            vDias = false;
+        }
+        return vDias;
+    }
+
+    public boolean muestra() {
+        System.out.println("¿La muestra de sangre es apta para donacion? 1.- si || 2.- no");
+        prueba = consola.nextInt();
+        if (prueba == 1) {
+            System.out.println("Puede pasar a la sala de donación");
+            mSangre = true;
+        } else if (prueba == 2) {
+            System.out.println("Candidato no apto para la donación");
+            mSangre = false;
+        }
+        return mSangre;
+    }
+
+    public boolean caso(sangre principal, String p, boolean d) {
+    System.out.println("Obtenga las respuestas del candidato " + p);
+    if (d){
+    if (principal.ayuno1() && principal.fecha()) {
+      if (principal.muestra()) {
+        aprobados = aprobados + " " + p;
+        d = false;
+      } else {
+        rechazados = rechazados + " " + p;
+        d = false;
+      }
+    } else {
+      System.out.println("Adios");
+      rechazados = rechazados + " " + p;
+      d = false;
+    }
+    }else System.out.println("Ya se Registraron respuestas");
+    return d;
+  }
+}
